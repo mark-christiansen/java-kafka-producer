@@ -17,7 +17,6 @@ producer:
   bootstrap.servers: localhost:9092
   security.protocol: PLAINTEXT
   schema.registry.url: http://localhost:8081
-  basic.auth.credentials.source: USER_INFO
 
 admin:
   bootstrap.servers: localhost:9092
