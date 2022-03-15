@@ -1,0 +1,65 @@
+{
+  "type": "record",
+  "name": "Company",
+  "namespace": "com.jnj.model.avro",
+  "fields":
+    [
+      {
+        "name": "id",
+        "type": "long"
+      },
+      {
+        "name": "companyName",
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      { 
+        "name": "establishedDate", 
+        "type": [ 
+          "null",
+          { 
+            "type": "int", 
+            "logicalType": "date"
+          } 
+        ], 
+        "default": null
+      },
+      { 
+        "name": "earnings", 
+        "type": [ 
+          "null", 
+          { 
+            "type": "bytes", 
+            "logicalType": "decimal", 
+            "precision": 12, 
+            "scale": 2
+          } 
+        ], 
+        "default": null
+      },
+      { 
+        "name": "created", 
+        "type": [ 
+          "null", 
+          { 
+            "type": "long", 
+            "logicalType": "timestamp-millis"
+          } 
+        ], 
+        "default": null
+      },
+      { 
+        "name": "updated", 
+        "type": [ 
+          "null", 
+          { 
+            "type": "long", 
+            "logicalType": "timestamp-millis"
+          } 
+        ], 
+        "default": null
+      }
+    ]
+}

@@ -1,2 +1,2 @@
 # java-kafka-producer
-Java Kafka producer
+Sample Java Kafka Producer

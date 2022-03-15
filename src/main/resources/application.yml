@@ -1,0 +1,25 @@
+# Kafka properties
+producer:
+  client.id: client-producer
+  # increase for higher throughput
+  batch.size: 1000
+  # none for lower latency, lz4 for higher throughput
+  compression.type: lz4
+  # prevent out of order messages when not using an idempotent producer
+  max.in.flight.requests.per.connection: 1
+  # higher for more throughput (ms), 0 for less latency
+  linger.ms: 0
+  # reduce to 1 for lower latency
+  acks: all
+  avro.use.logical.type.converters: true
+  key.serializer: org.apache.kafka.common.serialization.LongSerializer
+  value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+  bootstrap.servers: localhost:9092
+  security.protocol: PLAINTEXT
+  schema.registry.url: http://localhost:8081
+  basic.auth.credentials.source: USER_INFO
+
+admin:
+  bootstrap.servers: localhost:9092
+  security.protocol: PLAINTEXT
+  schema.registry.url: http://localhost:8081
