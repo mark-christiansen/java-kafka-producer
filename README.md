@@ -1,6 +1,4 @@
 # java-kafka-producer
-Sample Java Kafka Producer
-
 To run the script make sure that you have the compiled jar file "java-kafka-producer-0.0.1.jar" in the same directory as
 the shell script "producer.sh". In that same directory create a "conf" directory and add an "application-<env>.yaml" to
 that directory, where <env> is an arbitrary name you want to give the Kafka environment you are producing to. See
