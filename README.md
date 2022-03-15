@@ -17,9 +17,17 @@ schema file should be passed to the shell script without the file extension (ex:
 
 When running the script you specify the options like show below:
 
-> producer.sh --topic mytopic --messages 10 --schema person --partitions 1
->
-> topic: the topic you want to produce to (required)
-> messages: the number of messages you want to produce (required)
-> schema: the name of the schema minus the file extension (.avsc) for the schema you want to use (default is "person" - built-in schema)
-> partitions: the number of partitions to give the topic if created by this program (default is 1)
+```
+producer.sh --topic mytopic --messages 10 --schema person --partitions 1 --env dev
+
+
+    topic: the topic you want to produce to (required)
+  
+    messages: the number of messages you want to produce (required)
+  
+    schema: the name of the schema minus the file extension (.avsc) for the schema you want to use (default is "person" - built-in schema)
+  
+    partitions: the number of partitions to give the topic if created by this program (default is 1)
+  
+    env: the name of the environment (conf/application-<env>.yaml) to load
+```
