@@ -14,6 +14,7 @@ producer:
   avro.use.logical.type.converters: true
   key.serializer: org.apache.kafka.common.serialization.LongSerializer
   value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+  #value.serializer: io.confluent.encryption.serializers.avro.SecuredKafkaAvroSerializer
   bootstrap.servers: localhost:9092
   security.protocol: PLAINTEXT
   schema.registry.url: http://localhost:8081
@@ -21,4 +22,6 @@ producer:
 admin:
   bootstrap.servers: localhost:9092
   security.protocol: PLAINTEXT
-  schema.registry.url: http://localhost:8081
+  schema.registry.url: https://localhost:8081
+  basic.auth.credentials.source: USER_INFO
+  basic.auth.user.info: admin:admin-secret

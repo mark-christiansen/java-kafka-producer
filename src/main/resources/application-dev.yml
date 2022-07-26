@@ -17,7 +17,7 @@ producer:
   #value.serializer: io.confluent.encryption.serializers.avro.SecuredKafkaAvroSerializer
   bootstrap.servers: localhost:9092
   security.protocol: SASL_SSL
-  ssl.truststore.location: /Users/markchristiansen/projects/confluent/docker/certs/client.kafka_network.truststore.jks
+  ssl.truststore.location: /Users/markchristiansen/repos/github.com/objectpartners/confluent-platform-toolkit/certs/client.mycompany.com.truststore.jks
   ssl.truststore.password: serverpassword
   sasl.mechanism: PLAIN
   sasl.jaas.config: >-
@@ -25,7 +25,7 @@ producer:
     username="admin"
     password="admin-secret";
   schema.registry.url: https://localhost:8081
-  schema.registry.ssl.truststore.location: /Users/markchristiansen/projects/confluent/docker/certs/client.kafka_network.truststore.jks
+  schema.registry.ssl.truststore.location: /Users/markchristiansen/repos/github.com/objectpartners/confluent-platform-toolkit/certs/client.mycompany.com.truststore.jks
   schema.registry.ssl.truststore.password: serverpassword
   basic.auth.credentials.source: USER_INFO
   basic.auth.user.info: admin:admin-secret
@@ -33,7 +33,7 @@ producer:
 admin:
   bootstrap.servers: localhost:9092
   security.protocol: SASL_SSL
-  ssl.truststore.location: /Users/markchristiansen/projects/confluent/docker/certs/client.kafka_network.truststore.jks
+  ssl.truststore.location: /Users/markchristiansen/repos/github.com/objectpartners/confluent-platform-toolkit/certs/client.mycompany.com.truststore.jks
   ssl.truststore.password: serverpassword
   sasl.mechanism: PLAIN
   sasl.jaas.config: >-

@@ -13,7 +13,7 @@
 
     <version>0.0.1</version>
     <groupId>com.jnj</groupId>
-    <artifactId>java-kafka-producer</artifactId>
+    <artifactId>java-kafka-genericRecordProducer</artifactId>
     <packaging>jar</packaging>
 
     <organization>
@@ -27,7 +27,7 @@
 
     <properties>
         <confluent.version>7.0.1</confluent.version>
-        <kafka.version>3.1.0</kafka.version>
+        <kafka.version>2.5.1</kafka.version>
         <kafka.scala.version>2.13</kafka.scala.version>
         <avro.version>1.11.0</avro.version>
         <logback.version>1.2.11</logback.version>
@@ -76,6 +76,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- plugins -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-maven-plugin</artifactId>
+            <version>${avro.version}</version>
+        </dependency>
         <!-- spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -235,7 +241,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.jnj.kafka.producer.Application</mainClass>
+                    <mainClass>com.jnj.kafka.genericRecordProducer.Application</mainClass>
                     <layout>JAR</layout>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
@@ -265,6 +271,30 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+                <version>${avro.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>schema</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>src/main/resources/schemas</sourceDirectory>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                            <stringType>String</stringType>
+                            <enableDecimalLogicalType>true</enableDecimalLogicalType>
+                            <imports>
+                                <!-- make sure the Avro schemas used by other schemas are imported first -->
+                                <import>${project.basedir}/src/main/resources/schemas/person.avsc</import>
+                            </imports>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

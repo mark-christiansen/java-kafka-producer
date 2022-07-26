@@ -111,6 +111,10 @@ public class DataGenerator {
                             record.put(f.name(), faker.regexify(fieldRegex.get(regexFieldName)));
                         } else if (f.name().toUpperCase().contains("ADDRESS")) {
                             record.put(f.name(), faker.address().fullAddress());
+                        } else if (f.name().equalsIgnoreCase("FIRSTNAME")) {
+                            record.put(f.name(), faker.name().firstName());
+                        } else if (f.name().equalsIgnoreCase("LASTNAME")) {
+                            record.put(f.name(), faker.name().lastName());
                         } else if (f.name().toUpperCase().contains("NAME")) {
                             record.put(f.name(), faker.name().fullName());
                         } else if (f.name().toUpperCase().contains("FLAG")) {

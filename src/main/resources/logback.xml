@@ -9,7 +9,7 @@
     </appender>
 
     <logger name="org.apache.kafka" level="warn" />
-    <logger name="com.jnj.kafka.producer" level="info" />
+    <logger name="com.jnj.kafka.genericRecordProducer" level="info" />
 
     <root level="info">
         <appender-ref ref="stdout"/>

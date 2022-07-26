@@ -16,15 +16,15 @@ import java.util.Map;
 
 import static java.lang.String.format;
 
-public class Producer {
+public class GenericRecordProducer {
 
-    private static final Logger log = LoggerFactory.getLogger(Producer.class);
+    private static final Logger log = LoggerFactory.getLogger(GenericRecordProducer.class);
     private static final int BATCH_SIZE = 1000;
 
     private final KafkaProducer<Long, GenericRecord> producer;
     private final String topicName;
 
-    public Producer(KafkaProducer<Long, GenericRecord> producer, String topicName) {
+    public GenericRecordProducer(KafkaProducer<Long, GenericRecord> producer, String topicName) {
         this.producer = producer;
         this.topicName = topicName;
     }
